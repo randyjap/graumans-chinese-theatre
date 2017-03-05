@@ -23,6 +23,9 @@
 }
 
 .splash-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 90px;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -32,6 +35,7 @@
   left: 25px;
   width: 200px;
   position: absolute;
+  z-index: 100;
 }
 
 .nav-login {
@@ -47,6 +51,7 @@
   top: 100px;
   padding: 40px;
   padding-bottom: 20px;
+  font-weight: 600;
 }
 
 .font-fifty {

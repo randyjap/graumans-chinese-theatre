@@ -1,0 +1,35 @@
+.main-theater {
+  background-color: black;
+}
+
+.billboard {
+  height: 346px;
+  background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 32%, rgba(0,0,0,0) 100%), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center; /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 32%,rgba(0,0,0,0) 100%), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 32%,rgba(0,0,0,0) 100%), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 ), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center; /* IE6-9 */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.lolomoRow .rowHeader {
+    line-height: 1.3;
+    margin: 0;
+}
+
+h2 {
+  color: white;
+  display: block;
+  font-size: 14px;
+  color: grey;
+  -webkit-margin-before: 0.83em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+.category-sliders {
+}

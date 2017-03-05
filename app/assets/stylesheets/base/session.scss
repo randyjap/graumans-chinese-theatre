@@ -12,6 +12,8 @@
 }
 
 .login-form {
+  position: relative;
+  top: 90px;
   padding-top: 20px;
   background-color: #f3f3f3;
   padding: 40px;
@@ -19,7 +21,6 @@
   height: 402px;
   margin: auto;
   margin-bottom: 10px;
-  position: relative;
 }
 
 .session-form-header {
