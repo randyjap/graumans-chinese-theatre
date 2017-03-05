@@ -73,6 +73,7 @@ class SessionForm extends React.Component {
       top: "20px",
       color: "white"
     };
+
     return(
       <div className="main-splash">
         <div className="splash-nav">
