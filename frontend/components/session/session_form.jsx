@@ -4,22 +4,24 @@ import Modal from 'react-modal';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import Divider from 'material-ui/Divider';
 
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        modalOpen: true,
         username: "",
         password: ""
     };
     this.updateProperty = this.updateProperty.bind(this);
     this.redirect = this.redirect.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.openModal = this.openModal.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
     this.signup = this.signup.bind(this);
     this.login = this.login.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.clearSessionErrors();
   }
 
   redirect(route){
@@ -47,17 +49,6 @@ class SessionForm extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
-  closeModal() {
-    this.props.clearSessionErrors();
-    this.setState({ modalOpen: false });
-    this.redirect('/');
-  }
-
-  openModal() {
-    this.redirect('/');
-    this.setState({ modalOpen: true });
-  }
-
   demoLogin() {
     const username = "Guest";
     const password = "password";
@@ -75,29 +66,28 @@ class SessionForm extends React.Component {
   }
 
   render(){
+    let style = {
+      backgroundColor: "red",
+      position: "absolute",
+      right: "25px",
+      top: "20px",
+      color: "white"
+    };
     return(
       <div className="main-splash">
-        <div id='greeting'>
-          <Modal
-            isOpen={this.state.modalOpen}
-            onRequestClose={this.closeModal}
-            className="modal-session"
-            overlayClassName="overlayModal"
-            contentLabel="Modal"
-            transitionName="modal-anim">
-            <div>
-              <h1 className="entrance"><div className="square-logo"></div></h1>
-              <form onSubmit={this.handleSubmit}>
-                <TextField style={{width: 215}} autoFocus hintText="Enter Username" floatingLabelText="Username" value={this.state.username} onChange={this.updateProperty('username')} required /><br />
-                <TextField style={{width: 215, marginBottom: 50}} errorText={this.props.errors.join(" and ")} hintText="Enter Password" floatingLabelText="Password" type="password" value={this.state.password} onChange={this.updateProperty('password')} required /><br />
-                <div className="entrance flex">
-                  <div><FlatButton label="Login" onClick={this.login} /></div>
-                  <div><FlatButton label="Signup" onClick={this.signup} /></div>
-                </div>
-                <div><RaisedButton label="Demo" onClick={this.demoLogin} secondary={true} style={{margin: 12, width: 200}} /></div>
-              </form>
-            </div>
-          </Modal>
+        <div className="splash-nav">
+          <Link to="/">
+            <img className="logo" src="http://res.cloudinary.com/dkympkwdz/image/upload/v1488680995/gct-logo_blthd0.png"/>
+          </Link>
+        </div>
+        <div className="login-form">
+          <h1 className="session-form-header">Sign In</h1>
+            <TextField style={{width: 360, marginTop: 10}} autoFocus hintText="Enter Username" floatingLabelText="Username" value={this.state.username} onChange={this.updateProperty('username')} required /><br />
+            <TextField style={{width: 360, marginBottom: 40}} errorText={this.props.errors.join(" and ")} hintText="Enter Password" floatingLabelText="Password" type="password" value={this.state.password} onChange={this.updateProperty('password')} required /><br />
+            <div><RaisedButton label="Login" onClick={this.login} style={{margin: 12, width: 350}} /></div>
+            <div><RaisedButton label="Signup" onClick={this.signup} style={{margin: 12, width: 350}} /></div>
+            <Divider />
+            <div><RaisedButton label="Demo" onClick={this.demoLogin} secondary={true} style={{margin: 12, width: 350}} /></div>
         </div>
       </div>
     );
