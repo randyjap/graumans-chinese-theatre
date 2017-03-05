@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 20170305003538) do
     t.string   "mpaa_rating", null: false
     t.text     "description", null: false
     t.string   "cover_url",   null: false
+    t.integer  "genre_id",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["genre_id"], name: "index_series_on_genre_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

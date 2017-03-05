@@ -6,7 +6,9 @@ class CreateSeries < ActiveRecord::Migration[5.0]
       t.string :mpaa_rating, null: false
       t.text :description, null: false
       t.string :cover_url, null: false
+      t.integer :genre_id, null: false
       t.timestamps
     end
+    add_index :series, :genre_id
   end
 end

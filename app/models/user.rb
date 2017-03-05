@@ -1,12 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :moderated_rooms, class_name: "Room", foreign_key: "moderator_id"
-  has_many :rooms, through: :room_memberships
-  has_many :room_memberships, foreign_key: "guest_id"
-  has_many :messages, foreign_key: "author_id"
+  has_many :reviews
+  has_many :serie_lists
+  has_many :series, through: :serie_lists, source: :serie
 
   attr_reader :password
   after_initialize :ensure_session_token
