@@ -4,12 +4,19 @@ import Slider from 'react-slick';
 class FilmReel extends React.Component{
   constructor(props){
     super(props);
+    this.state = { slidesToShow: this.slidesToShow() };
+  }
+
+  slidesToShow(){
+    console.log(Math.floor($( window ).width() / 258));
+    return Math.floor($( window ).width() / 258);
   }
 
   componentDidMount(){
+    let that = this;
     $(window).resize(function() {
       let width = $( window ).width();
-      console.log(width);
+      that.setState({slidesToShow: that.slidesToShow()});
     });
   }
 
@@ -18,8 +25,8 @@ class FilmReel extends React.Component{
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 2
+      slidesToShow: this.state.slidesToShow,
+      slidesToScroll: this.state.slidesToShow
     };
     return (
       <div className='film-reel-container'>
