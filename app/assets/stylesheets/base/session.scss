@@ -1,3 +1,16 @@
+.main-session-splash {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488673279/login-the-crown_2-1500x1000_naas9z.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .login-form {
   padding-top: 20px;
   background-color: #f3f3f3;

@@ -75,7 +75,7 @@ class SessionForm extends React.Component {
     };
 
     return(
-      <div className="main-splash">
+      <div className="main-session-splash">
         <div className="splash-nav">
           <Link to="/">
             <img className="logo" src="http://res.cloudinary.com/dkympkwdz/image/upload/v1488680995/gct-logo_blthd0.png"/>

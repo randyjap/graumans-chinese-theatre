@@ -21,6 +21,11 @@ class Greeting extends React.Component{
       color: "white"
     };
 
+    let style2 = {
+      backgroundColor: "red",
+      color: "white"
+    };
+
     return (
       <div className="main-splash">
         <div className="splash-nav">
@@ -28,6 +33,11 @@ class Greeting extends React.Component{
             <img className="logo" src="http://res.cloudinary.com/dkympkwdz/image/upload/v1488680995/gct-logo_blthd0.png"/>
           </Link>
           <FlatButton style={style} label="Sign In" onClick={() => this.redirect('login')} />
+        </div>
+        <div className="splash-grabber">
+          <p className="font-fifty">See what’s next.</p>
+          <p className="font-twenty">WATCH ANYWHERE. CANCEL ANYTIME.</p>
+          <FlatButton style={style2} label="JOIN FREE FOR A MONTH" onClick={() => this.redirect('login')} />
         </div>
       </div>
     );

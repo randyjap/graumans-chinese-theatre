@@ -4,7 +4,10 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488673279/login-the-crown_2-1500x1000_naas9z.jpg) no-repeat center center fixed;
+  background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 32%, rgba(0,0,0,0) 100%), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center fixed; /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 32%,rgba(0,0,0,0) 100%), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center fixed; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 32%,rgba(0,0,0,0) 100%), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center fixed; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 ), url(http://res.cloudinary.com/dkympkwdz/image/upload/v1488687048/splash-bg_javq9s.jpg) no-repeat center center fixed; /* IE6-9 */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -32,8 +35,26 @@
 }
 
 .nav-login {
-  background-color: "red";
+  background-color: red;
   position: absolute;
   right: 20px;
   top: 15px;
+}
+
+.splash-grabber {
+  color: white;
+  position: relative;
+  top: 100px;
+  padding: 40px;
+  padding-bottom: 20px;
+}
+
+.font-fifty {
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+
+.font-twenty {
+  font-size: 20px;
+  padding-bottom: 20px;
 }
