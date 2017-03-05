@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227005634) do
+ActiveRecord::Schema.define(version: 20170305003538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "rating",      null: false
+    t.text     "review_text", null: false
+    t.integer  "serie_id",    null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["serie_id"], name: "index_reviews_on_serie_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
+  create_table "serie_lists", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "serie_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["serie_id"], name: "index_serie_lists_on_serie_id", using: :btree
+    t.index ["user_id"], name: "index_serie_lists_on_user_id", using: :btree
+  end
+
+  create_table "series", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.integer  "year",        null: false
+    t.string   "mpaa_rating", null: false
+    t.text     "description", null: false
+    t.string   "cover_url",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
@@ -22,6 +58,18 @@ ActiveRecord::Schema.define(version: 20170227005634) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description", null: false
+    t.integer  "number",      null: false
+    t.integer  "serie_id",    null: false
+    t.string   "thumb_url",   null: false
+    t.string   "url",         null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["serie_id"], name: "index_videos_on_serie_id", using: :btree
   end
 
 end
