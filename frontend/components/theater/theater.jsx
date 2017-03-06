@@ -63,7 +63,8 @@ class Theater extends React.Component {
 
     let style2 = {
       backgroundColor: "red",
-      color: "white"
+      color: "white",
+      zIndex: 99999
     };
 
     return(
