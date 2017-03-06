@@ -1,0 +1,53 @@
+div.serie-highlight {
+  padding: 15px;
+  background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 32%, rgba(0,0,0,0) 100%) no-repeat center center; /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 32%,rgba(0,0,0,0) 100%) no-repeat center center; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 32%,rgba(0,0,0,0) 100%) no-repeat center center; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 ) no-repeat center center; /* IE6-9 */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: inline-flex;
+}
+
+div.serie-left {
+  width: auto;
+  padding: 20px;
+}
+
+img.serie-artwork {
+  width: 400px;
+}
+
+p.serie-title {
+  font-size: 28px;
+  color: white;
+}
+
+b.serie-year {
+  font-size: 10px;
+  color: grey;
+}
+
+b.serie-mpaa-rating {
+  font-size: 10px;
+  color: grey;
+  margin: 5px;
+  padding-left: 2px;
+  padding-right: 3px;
+  border: 1px solid grey;
+}
+
+b.serie-count {
+  font-size: 10px;
+  color: grey;
+}
+
+p.serie-description {
+  color: grey;
+  padding-top: 10px;
+  line-height: 1.3;
+  font-size: 13px;
+  font-weight: 100;
+}

@@ -19,7 +19,7 @@ class Theater extends React.Component {
     this.handleTouchTap = this.handleTouchTap.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
     this.state = {
-      open: false,
+      open: false
     };
   }
 
@@ -42,7 +42,7 @@ class Theater extends React.Component {
 
     this.setState({
       open: true,
-      anchorEl: event.currentTarget,
+      anchorEl: event.currentTarget
     });
   }
 
