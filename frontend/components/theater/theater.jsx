@@ -92,6 +92,10 @@ class Theater extends React.Component {
             </Menu>
           </Popover>
           </div>
+          <div className="billboard-highlight">
+            <p className="font-fifty">Chinese Theater Originals!</p>
+            <p className="font-twenty">Thanks for visiting!</p>
+          </div>
         </div>
         <div className="category-sliders">
           <h2 className="rowHeader">
