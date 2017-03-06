@@ -36,7 +36,7 @@ class Greeting extends React.Component{
         </div>
         <div className="splash-grabber">
           <p className="font-fifty">See what’s next.</p>
-          <p className="font-twenty">WATCH ANYWHERE. CANCEL ANYTIME.</p>
+          <p className="font-twenty">WATCH ANYWHERE. ANYTIME.</p>
           <FlatButton style={style2} label="LIVE DEMO!" onClick={() => this.redirect('login')} />
         </div>
       </div>
