@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router';
 
 class FilmReel extends React.Component{
   constructor(props){
@@ -8,7 +9,6 @@ class FilmReel extends React.Component{
   }
 
   slidesToShow(){
-    console.log(Math.floor($( window ).width() / 258));
     return Math.floor($( window ).width() / 258);
   }
 
@@ -31,7 +31,6 @@ class FilmReel extends React.Component{
     return (
       <div className='film-reel-container'>
       	<Slider {...settings}>
-        	<div><img className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
           <div><img className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
           <div><img className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
           <div><img className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>

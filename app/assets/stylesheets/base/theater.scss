@@ -37,8 +37,7 @@ h2 {
 }
 
 .film-reel-container {
-  padding-top: 10px;
-  padding-bottom: 15px
+  padding-bottom: 5px;
 }
 
 .vid_thumbnail:hover {
@@ -46,11 +45,12 @@ h2 {
 }
 
 .vid_thumbnail {
+  cursor: pointer;
   transition: all .2s ease-in-out;
 }
 
 .slick-list {
-  overflow: visible !important;
+  padding: 10px !important;
 }
 
 .slick-arrow:hover {
