@@ -7,7 +7,7 @@ import SerieHighlight from '../serie_highlight/serie_highlight_container';
 class FilmReel extends React.Component{
   constructor(props){
     super(props);
-    this.state = { slidesToShow: this.slidesToShow(), highlight: false };
+    this.state = { slidesToShow: this.slidesToShow(), highlight: false, serie: {} };
     this.show = this.show.bind(this);
   }
 
@@ -23,11 +23,24 @@ class FilmReel extends React.Component{
     });
   }
 
-  show(){
-    this.setState({ highlight: !this.state.highlight });
+  show(data){
+    this.setState({ highlight: !this.state.highlight, serie: data });
   }
 
   render(){
+    let series;
+    let keys = Object.keys(this.props.genre);
+    if (keys.length > 0) {
+      series = keys.map(key => {
+        return (
+          <div>
+            <img onClick={() => this.show(this.props.genre[key])} className="vid_thumbnail"
+              src={this.props.genre[key].thumb_url} />
+          </div>
+        );
+      });
+    }
+
     const settings = {
       dots: false,
       infinite: true,
@@ -39,27 +52,19 @@ class FilmReel extends React.Component{
     let highlight;
     if (this.state.highlight) {
       highlight = (
-        <SerieHighlight></SerieHighlight>
+        <SerieHighlight data={this.state.serie }></SerieHighlight>
       );
     }
     return (
       <div className='film-reel-container'>
       	<Slider {...settings}>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
-          <div><img onClick={this.show} className="vid_thumbnail" src='http://res.cloudinary.com/dkympkwdz/image/upload/v1488755216/slider_example_genc7a.jpg' /></div>
+          { series }
         </Slider>
         <ReactCSSTransitionGroup
           transitionName="highlight"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
-          {highlight}
+          { highlight }
         </ReactCSSTransitionGroup>
       </div>
     );

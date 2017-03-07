@@ -9,6 +9,7 @@ import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import FilmReelContainer from './../film_reel/film_reel_container';
+import { getAllSeries } from './../../util/serie_api_util';
 
 class Theater extends React.Component {
   constructor(props){
@@ -19,8 +20,14 @@ class Theater extends React.Component {
     this.handleTouchTap = this.handleTouchTap.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
     this.state = {
-      open: false
+      open: false,
+      genres: {}
     };
+  }
+
+  componentDidMount(){
+    let that = this;
+    getAllSeries().then(data => that.setState({ genres: data }));
   }
 
   redirect(route){
@@ -39,7 +46,7 @@ class Theater extends React.Component {
   handleTouchTap(event){
     // This prevents ghost click.
     event.preventDefault();
-
+    console.log(this.state);
     this.setState({
       open: true,
       anchorEl: event.currentTarget
@@ -53,6 +60,21 @@ class Theater extends React.Component {
   }
 
   render(){
+    let reels;
+    let keys = Object.keys(this.state.genres);
+    if (keys.length > 0) {
+      reels = keys.map(key => {
+        return (
+          <h2 key={key} className="rowHeader">
+            <span className="rowTitle">
+              {key}
+            </span>
+            <FilmReelContainer genre={this.state.genres[key]} />
+          </h2>
+        );
+      });
+    }
+
     let style = {
       backgroundColor: "red",
       position: "absolute",
@@ -99,18 +121,7 @@ class Theater extends React.Component {
           </div>
         </div>
         <div className="category-sliders">
-          <h2 className="rowHeader">
-            <span className="rowTitle">
-              Trending Now
-            </span>
-            <FilmReelContainer />
-          </h2>
-          <h2 className="rowHeader">
-            <span className="rowTitle">
-              TV Dramas
-            </span>
-            <FilmReelContainer />
-          </h2>
+          {reels}
         </div>
       </div>
     );

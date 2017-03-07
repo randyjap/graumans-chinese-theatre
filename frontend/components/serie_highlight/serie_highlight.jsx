@@ -24,8 +24,6 @@ class SerieHighlight extends React.Component{
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.refs.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -33,6 +31,7 @@ class SerieHighlight extends React.Component{
   }
 
   render(){
+    let data = this.props.data;
     const customStyles = {
       content : {
         position: 'absolute',
@@ -48,20 +47,19 @@ class SerieHighlight extends React.Component{
       overlay: {zIndex: 8000}
     };
 
-
     return (
       <div className="serie-highlight">
         <div className="serie-left">
-          <p className="serie-title">Breaking Bad</p>
+          <p className="serie-title">{data.name}</p>
           <ReactStars count={5} value={5} onChange={this.ratingChanged} size={12} color2={'#db1715'} />
-          <b className="serie-year">2013</b>
-          <b className="serie-mpaa-rating">TV-MA</b>
-          <b className="serie-count">15 Episodes</b>
-          <p className="serie-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <b className="serie-year">{data.year}</b>
+          <b className="serie-mpaa-rating">{data.mpaa_rating}</b>
+          <b className="serie-count">1 Episode for now</b>
+          <p className="serie-description">{data.description}</p>
           <i class="fa fa-plus-circle" aria-hidden="true"></i>
         </div>
         <div className="serie-right">
-          <img onClick={this.openModal} className="serie-artwork" src="http://res.cloudinary.com/dkympkwdz/image/upload/v1488765718/serie_artwork_example_dfhuep.jpg"/>
+          <img onClick={this.openModal} className="serie-artwork" src={data.screenshot_url}/>
             <Modal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
@@ -70,7 +68,7 @@ class SerieHighlight extends React.Component{
               contentLabel="Example Modal"
             >
               <i onClick={this.closeModal} className="material-icons icon-off">highlight_off</i>
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/F1HNuAE9WdU?rel=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+              <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${data.url}?rel=0&amp;showinfo=0&autoplay=1`} frameborder="0" allowfullscreen></iframe>
             </Modal>
         </div>
       </div>
