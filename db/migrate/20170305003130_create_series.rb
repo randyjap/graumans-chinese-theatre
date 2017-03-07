@@ -5,7 +5,8 @@ class CreateSeries < ActiveRecord::Migration[5.0]
       t.integer :year, null: false
       t.string :mpaa_rating, null: false
       t.text :description, null: false
-      t.string :cover_url, null: false
+      t.string :thumb_url, null: false
+      t.string :screenshot_url, null: false
       t.integer :genre_id, null: false
       t.timestamps
     end

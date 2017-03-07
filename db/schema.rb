@@ -42,14 +42,15 @@ ActiveRecord::Schema.define(version: 20170305003538) do
   end
 
   create_table "series", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.integer  "year",        null: false
-    t.string   "mpaa_rating", null: false
-    t.text     "description", null: false
-    t.string   "cover_url",   null: false
-    t.integer  "genre_id",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",           null: false
+    t.integer  "year",           null: false
+    t.string   "mpaa_rating",    null: false
+    t.text     "description",    null: false
+    t.string   "thumb_url",      null: false
+    t.string   "screenshot_url", null: false
+    t.integer  "genre_id",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["genre_id"], name: "index_series_on_genre_id", using: :btree
   end
 
@@ -63,14 +64,12 @@ ActiveRecord::Schema.define(version: 20170305003538) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.text     "description", null: false
-    t.integer  "number",      null: false
-    t.integer  "serie_id",    null: false
-    t.string   "thumb_url",   null: false
-    t.string   "url",         null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",      null: false
+    t.integer  "number",     null: false
+    t.integer  "serie_id",   null: false
+    t.string   "url",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["serie_id"], name: "index_videos_on_serie_id", using: :btree
   end
 
